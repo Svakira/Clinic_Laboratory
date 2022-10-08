@@ -32,8 +32,6 @@ public class QueueT<T> {
 
     public Node search(T goal) {
         return search(goal, head);
-
-
     }
 
     //Recursivo
@@ -93,4 +91,6 @@ public class QueueT<T> {
         }
         System.out.println("null");
     }
+
+
 }

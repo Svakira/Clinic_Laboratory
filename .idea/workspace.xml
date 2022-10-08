@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="36e7d0e3-de27-43dd-aed6-2de150b55d27" name="Changes" comment="commit1">
-      <change afterPath="$PROJECT_DIR$/src/model/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/HashTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/QueueT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/model/HashTableTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/model/QueueTest.java" afterDir="false" />
+    <list default="true" id="36e7d0e3-de27-43dd-aed6-2de150b55d27" name="Changes" comment="commit2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HashTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/QueueT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/QueueT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/HashTableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/HashTableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/model/QueueTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/model/QueueTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +47,8 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.QueueTest.testSearch">
-    <configuration name="HashTableTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HashTableTest.eliminateNull">
+    <configuration name="HashTableTest.eliminateNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TI1_Disc" />
       <extension name="coverage">
         <pattern>
@@ -60,13 +58,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="model" />
       <option name="MAIN_CLASS_NAME" value="model.HashTableTest" />
-      <option name="METHOD_NAME" value="testInsert" />
+      <option name="METHOD_NAME" value="eliminateNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HashTableTest.search2HashTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TI1_Disc" />
       <extension name="coverage">
         <pattern>
@@ -75,29 +73,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.QueueTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="QueueTest.testEliminateNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="TI1_Disc" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.QueueTest" />
-      <option name="METHOD_NAME" value="testEliminateNode" />
+      <option name="MAIN_CLASS_NAME" value="model.HashTableTest" />
+      <option name="METHOD_NAME" value="search2HashTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueueTest.testInsertNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HashTableTest.searchHashTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TI1_Disc" />
       <extension name="coverage">
         <pattern>
@@ -106,14 +89,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="model" />
-      <option name="MAIN_CLASS_NAME" value="model.QueueTest" />
-      <option name="METHOD_NAME" value="testInsertNode" />
+      <option name="MAIN_CLASS_NAME" value="model.HashTableTest" />
+      <option name="METHOD_NAME" value="searchHashTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QueueTest.testSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HashTableTest.searchNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TI1_Disc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="model" />
+      <option name="MAIN_CLASS_NAME" value="model.HashTableTest" />
+      <option name="METHOD_NAME" value="searchNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueueTest.searchNulls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TI1_Disc" />
       <extension name="coverage">
         <pattern>
@@ -123,7 +122,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="model" />
       <option name="MAIN_CLASS_NAME" value="model.QueueTest" />
-      <option name="METHOD_NAME" value="testSearch" />
+      <option name="METHOD_NAME" value="searchNulls" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,11 +130,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.QueueTest.testSearch" />
-        <item itemvalue="JUnit.QueueTest.testEliminateNode" />
-        <item itemvalue="JUnit.QueueTest.testInsertNode" />
-        <item itemvalue="JUnit.HashTableTest.testInsert" />
-        <item itemvalue="JUnit.QueueTest" />
+        <item itemvalue="JUnit.HashTableTest.eliminateNull" />
+        <item itemvalue="JUnit.HashTableTest.searchNull" />
+        <item itemvalue="JUnit.HashTableTest.search2HashTest" />
+        <item itemvalue="JUnit.HashTableTest.searchHashTest" />
+        <item itemvalue="JUnit.QueueTest.searchNulls" />
       </list>
     </recent_temporary>
   </component>
@@ -155,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665170606538</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="commit2">
+      <created>1665170870876</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665170870876</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,15 +177,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit1" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit1" />
+    <MESSAGE value="commit2" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/HashTable.java</url>
-          <line>56</line>
+          <line>42</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/model/HashTableTest.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/model/QueueTest.java</url>
+          <line>84</line>
+          <properties class="model.QueueTest" method="eliminateThenInsertTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

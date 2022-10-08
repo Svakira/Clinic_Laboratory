@@ -27,32 +27,18 @@ public class HashTable<K, V> {
         lista.get(call).mostrar();
     }
 
-    /*public Node search(K goal) {
-        Node aux = null;
-        for (int i = 0; i < lista.size(); i++) {
-            if(search(goal, lista.get(i).getHead())==null){
-                continue;
-            }else {
-               aux=search(goal, lista.get(i).getHead());
-                break;
+    public Node<Data<K,V>> search(K key){
+        int k = getHashIndex(key);
+        QueueT<Data<K, V>> queueT = lista.get(k);
+        Node<Data<K, V>> aux = queueT.getHead();
+        while (aux != null) {
+            if (aux.getValue().getKey() == key) {
+                return aux;
             }
-        }
-        return aux;
-    }*/
 
-    //Recursivo
-   /* private Node search(K goal, Node current) {
-        //Casos base
-        if (current == null) {
-            return null;
         }
-        if (current.getKey() == goal) {
-            return current;
-        }
-        //Llamados recursivos
-        return search(goal, current.getNext());
+        return null;
     }
-*/
     public void eliminate(K key) {
         int call = getHashIndex(key);
         QueueT<Data<K, V>> queueT = lista.get(call);
