@@ -1,9 +1,7 @@
 package ui;
 
 import model.Controller;
-import model.HashTable;
 import model.Patient;
-import model.QueueT;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +10,6 @@ public class Main {
 
     public static Controller controller=new Controller();
     public static void main(String[] args) {
-        controller.readData();
         boolean entry=true;
         int answEntry;
         while(entry){
@@ -43,7 +40,7 @@ public class Main {
     }
 
     static void registerPatient(){
-        /*System.out.println("Enter the name of the patient");
+        System.out.println("Enter the name of the patient");
         String name=lect.nextLine();
         System.out.println("Enter the age of the patient");
         String age=lect.nextLine();
@@ -58,10 +55,6 @@ public class Main {
         boolean priority;
         if(yesNo.equalsIgnoreCase("YES")){priority=true;}else{priority=false;}
          patient=new Patient(name, age, id, genre, telephone,priority);
-        controller.insertHashAndQueue(patient);*/
-        patient=new Patient("sara", "17", "123", "WMO", "123",false);
-        controller.insertHashAndQueue(patient);
-        patient=new Patient("laura", "17", "124", "WMO", "123",false);
         controller.insertHashAndQueue(patient);
         controller.readData();
 
