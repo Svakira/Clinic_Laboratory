@@ -10,15 +10,7 @@ public class HashTable<K, V>  implements Hash<K,V> {
 
     public HashTable(int size) {
         this.size = size;
-        this.lista = lista;
         lista = new Data[size];
-
-    }
-
-
-    public HashTable(int size, Data<K, V>[] lista, ArrayList<Data<K, V>> array) {
-        this.size = size;
-        this.lista = lista;
 
     }
 
@@ -66,15 +58,16 @@ public class HashTable<K, V>  implements Hash<K,V> {
 
     public Data<K,V> search(K key){
         int k = getHashIndex(key);
+        Data<K,V> value=null;
         Data<K, V> queueT = lista[k];
         Data<K, V> aux = queueT;
         while (queueT != null) {
             if (aux.getKey() == key) {
-                return aux;
+                value= (Data<K, V>) aux.getValue();
             }
-            queueT.getNext();
+            aux=aux.getNext();
         }
-        return null;
+        return value;
     }
     public void eliminate(K key) {
         int call = getHashIndex(key);

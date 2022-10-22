@@ -59,7 +59,7 @@ public class Controller {
         return hashTable.search(id) != null;
     }
     public void deleteFromHash(String id){
-        hashTable.deleteKey(id);
+        hashTable.eliminate(id);
     }
     public void deleteFromQueue(Patient id,int lab){
         if(lab == 1){
