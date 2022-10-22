@@ -2,10 +2,21 @@ package model;
 
 public class Node<T> {
     private T value;
+    private int key;
+
+    public int getKey() {
+        return key;
+    }
+
+    public void setKey(int key) {
+        this.key = key;
+    }
+
     private Node<T> next;
 
-    public Node(T value) {
+    public Node(T value, int key) {
         this.value = value;
+        this.key=key;
         this.next = null;
     }
 

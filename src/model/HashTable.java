@@ -1,8 +1,10 @@
 package model;
 
+import generics.Hash;
+
 import java.util.ArrayList;
 
-public class HashTable<K, V> {
+public class HashTable<K, V>  implements Hash<K,V> {
     private int size;
     private ArrayList<QueueT<Data<K, V>>> lista;
 
@@ -53,6 +55,32 @@ public class HashTable<K, V> {
 
         }
 
+    }
+    @Override
+    public void deleteKey(K key) {
+        int deleteKey = hash(key); //1
+        Data<K, V> deleteNode = table[deleteKey]; //1
+        while (deleteNode != null) { //n+1
+            if (deleteNode.getKey().equals(key)) { //n
+                Data<K, V> prev = deleteNode.getPrevious(); //1
+                Data<K, V> next = deleteNode.getNext(); //1
+                if (table[deleteKey].equals(deleteNode)) {//1
+                    table[deleteKey] = next; //1
+                } else {
+                    if (prev != null) prev.setNext(next); //1
+                    if (next != null) next.setPrevious(prev); //1
+                }
+            }
+            deleteNode = deleteNode.getNext(); //n
+        }
+    }
+
+        public void show(){
+        for(int i=0; i<lista.size(); i++){
+            if(lista.get(i)!=null){
+                System.out.println(lista.get(i).getHead());
+            }
+        }
     }
 
 

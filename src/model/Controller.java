@@ -3,14 +3,19 @@ package model;
 import java.io.*;
 
 public class Controller {
-    public static QueueT<Patient> queueN = new QueueT<Patient>();
-    public static QueueT<Patient> priorityQ = new QueueT<Patient>();
-    public static HashTable<String, Patient> hashTable = new HashTable<>(100000);
+
+    public static HashTable<String, Patient> hashTable ;
+
+    private Hematology hematology;
+    private General general;
 
 
 
     public Controller() {
         readData();
+        hematology=new Hematology();
+        general = new General();
+        new HashTable<>(100000);
     }
     public void readData(){
         try {
@@ -36,17 +41,55 @@ public class Controller {
             e.printStackTrace();
         }
     }
-    public void insertHashAndQueue(Patient patient){
-        if(patient.isPriority()==true){
-            priorityQ.insert(patient);
-        }else{
-            queueN.insert(patient);
-        }
-        writeData(patient.toString());
+    public void insertPatient(Patient patient){
         hashTable.insert(patient.getId(), patient);
     }
-    public void searchPatient(String id){
-        hashTable.search(id);
+    public void entryPatients(Patient patient, int priority,int des){
+        if(des== 1){
+            hematology.entryPatients(patient,priority);
+        }else{
+            general.entryPatients(patient,priority);
+        }
+    }
+    public Patient searchPatient(String id){
+        return hashTable.search(id);
+    }
+
+    public boolean alreadyRegisterePatient(String id){
+        return hashTable.search(id) != null;
+    }
+    public void deleteFromHash(String id){
+        hashTable.deleteKey(id);
+    }
+    public void deleteFromQueue(Patient id,int lab){
+        if(lab == 1){
+            hematology.deleteFromQueue(id);
+        }else{
+            general.deleteFromQueue(id);
+        }
+
+    }
+    public Patient dequeue(int lab){
+        if(lab == 1){
+            return hematology.dequeue();
+        }else{
+            return general.dequeue();
+        }
+
+    }
+    public String patientsList(){
+        String message="";
+        message+=hematology.list();
+        message+=general.list();
+        return message;
+    }
+
+    public Hematology getHematology() {
+        return hematology;
+    }
+
+    public General getGeneral() {
+        return general;
     }
 
 }

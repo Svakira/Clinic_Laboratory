@@ -6,15 +6,22 @@ public class Patient {
     private String id;
     private String genre;
     private String telephone;
-    private boolean priority;
+    private int priority;
+    private int pregnant;
+    private int elderly;
+    private int illness;
 
-    public Patient(String name, String age, String id, String genre, String telephone, boolean priority) {
+    public Patient(String name, String age, String id, String genre, String telephone, int pregnant, int elderly, int illness) {
         this.name = name;
         this.age = age;
         this.id = id;
         this.genre = genre;
         this.telephone = telephone;
-        this.priority = priority;
+        if(pregnant==1 || elderly==1 || illness==1){
+            priority=1;
+        }else{
+            priority=0;
+        }
     }
 
     public String getName() {
@@ -57,12 +64,36 @@ public class Patient {
         this.telephone = telephone;
     }
 
-    public boolean isPriority() {
+    public int getPriority() {
         return priority;
     }
 
-    public void setPriority(boolean priority) {
+    public void setPriority(int priority) {
         this.priority = priority;
+    }
+
+    public int getPregnant() {
+        return pregnant;
+    }
+
+    public void setPregnant(int pregnant) {
+        this.pregnant = pregnant;
+    }
+
+    public int getElderly() {
+        return elderly;
+    }
+
+    public void setElderly(int elderly) {
+        this.elderly = elderly;
+    }
+
+    public int getIllness() {
+        return illness;
+    }
+
+    public void setIllness(int illness) {
+        this.illness = illness;
     }
 
     @Override
