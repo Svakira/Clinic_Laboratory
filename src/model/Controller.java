@@ -42,7 +42,8 @@ public class Controller {
         }
     }
     public void insertPatient(String id,Patient patient){
-        hashTable.insert(id, patient);
+        Data<String, Patient>data=new Data<>(id,patient);
+        hashTable.insert(data);
     }
     public void entryPatients(Patient patient, int priority,int des){
         Node<Patient>patientNode=new Node<>(patient);
@@ -74,7 +75,7 @@ public class Controller {
         }
 
     }
-    public Patient dequeue(int lab){
+    public Node<Patient> dequeue(int lab){
         if(lab == 1){
             return hematology.dequeue();
         }else{

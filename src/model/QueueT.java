@@ -45,9 +45,9 @@ public class QueueT<T> implements Pqueue<T> {
         int l = 2 * i;
         int r = 2 * i + 1;
         int la;
-        if (l <= array.size() - 1 && array.get(l).getKey() > array.get(i).getKey()) {
+        if (l <= array.size() - 1 && array.get(l).getPriority() > array.get(i).getPriority()) {
             la = l;} else {la = i;}
-        if (r <= array.size() - 1 && array.get(r).getKey() > array.get(la).getKey()) {
+        if (r <= array.size() - 1 && array.get(r).getPriority() > array.get(la).getPriority()) {
             la = r;}
         if (la != i) {
             Node<T> temp = array.get(i);

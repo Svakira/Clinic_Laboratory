@@ -18,7 +18,7 @@ public class General {
     public void deleteFromQueue(Patient obj){
         queueT.deleteFromQueue(obj);
     }
-    public Patient dequeue(){
+    public Node<Patient> dequeue(){
         return queueT.deQueue();
     }
     public String list(){

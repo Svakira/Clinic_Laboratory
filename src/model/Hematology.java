@@ -14,7 +14,7 @@ public class Hematology {
     public void deleteFromQueue(Patient patient){
         queueT.deleteFromQueue(patient);
     }
-    public Patient dequeue(){
+    public Node<Patient> dequeue(){
         return queueT.deQueue();
     }
     public String list(){

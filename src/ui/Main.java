@@ -1,6 +1,7 @@
 package ui;
 
 import model.Controller;
+import model.Node;
 import model.Patient;
 import java.util.Scanner;
 
@@ -126,14 +127,14 @@ public class Main {
         System.out.println("From which unit do you want to dequeue the patient ?  1. Hematology 2. General Purpose ");
         int lab=lect.nextInt();
         lect.nextLine();
-        Patient pat=controller.dequeue(lab);
+        Node<Patient> pat=controller.dequeue(lab);
         if(pat!=null){
-            System.out.println("The patient "+pat.getName()+" has successfully exited the queue");
+            System.out.println("The patient "+pat.getValue().getName()+" has successfully exited the queue");
             System.out.println("Undo ? 1. Yes 2. No");
             int undo=lect.nextInt();
             lect.nextLine();
             if(undo==1){
-                controller.deleteFromQueue(pat,lab);
+                controller.deleteFromQueue(pat.getValue(),lab);
             }
         }else{
             System.out.println("No patients found in the queue");
