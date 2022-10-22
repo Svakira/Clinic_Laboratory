@@ -52,7 +52,7 @@ public class Controller {
         }
     }
     public Patient searchPatient(String id){
-        return hashTable.search(id);
+        return hashTable.search(id).getValue();
     }
 
     public boolean alreadyRegisterePatient(String id){

@@ -6,79 +6,102 @@ import java.util.ArrayList;
 
 public class HashTable<K, V>  implements Hash<K,V> {
     private int size;
-    private ArrayList<QueueT<Data<K, V>>> lista;
+    private Data<K, V>[] lista;
 
     public HashTable(int size) {
         this.size = size;
         this.lista = lista;
-        lista = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            lista.add(i, new QueueT<Data<K, V>>());
-        }
+        lista = new Data[size];
+
     }
+
+
+    public HashTable(int size, Data<K, V>[] lista, ArrayList<Data<K, V>> array) {
+        this.size = size;
+        this.lista = lista;
+
+    }
+
+    public Data<K, V>[] getLista() {
+        return lista;
+    }
+
+    public void setLista(Data<K, V>[] lista) {
+        this.lista = lista;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
 
     public int getHashIndex(K key) {
         return key.hashCode() % size;
     }
-
+//CPIA
     public void insert(K key, V value) {
         int call = getHashIndex(key);
-        Data<K, V> data = new Data<>(key, value);
-        lista.add(call, lista.get(call));
-        lista.get(call).insert(data);
-        lista.get(call).mostrar();
+        Data<K,V> listN=lista[call];
+
+        if(listN==null) {
+            lista[call]=new Data<>(key, value);
+        }else{
+            while (listN != null) {
+                if(listN.getKey().equals(key)) {
+                    break;
+                }
+                listN = listN.getNext();
+            }
+            Data<K,V> nF= new Data<>(key, value);
+            lista[call].setPrev(nF);
+            nF.setNext(lista[call]);
+            lista[call] = nF;
+        }
+
     }
 
-    public Node<Data<K,V>> search(K key){
+    public Data<K,V> search(K key){
         int k = getHashIndex(key);
-        QueueT<Data<K, V>> queueT = lista.get(k);
-        Node<Data<K, V>> aux = queueT.getHead();
-        while (aux != null) {
-            if (aux.getValue().getKey() == key) {
+        Data<K, V> queueT = lista[k];
+        Data<K, V> aux = queueT;
+        while (queueT != null) {
+            if (aux.getKey() == key) {
                 return aux;
             }
-
+            queueT.getNext();
         }
         return null;
     }
     public void eliminate(K key) {
         int call = getHashIndex(key);
-        QueueT<Data<K, V>> queueT = lista.get(call);
-        Node<Data<K, V>> aux = queueT.getHead();
+        Data<K, V> queue = lista[call];
+        Data<K, V> aux = queue;
         while (aux != null) {
-            if (aux.getValue().getKey() == key) {
-                lista.get(call).delete(aux.getValue());
-                aux = queueT.getHead();
-            } else {
-                aux = aux.getNext();
-            }
-
-        }
-
-    }
-    @Override
-    public void deleteKey(K key) {
-        int deleteKey = hash(key); //1
-        Data<K, V> deleteNode = table[deleteKey]; //1
-        while (deleteNode != null) { //n+1
-            if (deleteNode.getKey().equals(key)) { //n
-                Data<K, V> prev = deleteNode.getPrevious(); //1
-                Data<K, V> next = deleteNode.getNext(); //1
-                if (table[deleteKey].equals(deleteNode)) {//1
-                    table[deleteKey] = next; //1
-                } else {
-                    if (prev != null) prev.setNext(next); //1
-                    if (next != null) next.setPrevious(prev); //1
+            if (aux.getKey() == key) {
+                //if the current key is the same key we want to eliminate the current node his new value is going to be the next before him
+                Data<K, V> prev = aux.getPrev();
+                Data<K, V> next = aux.getNext();
+                if (queue.getKey() == lista[call]) {
+                    lista[call] = next;
+                } else if (next != null) {
+                    next.setPrev(prev);
+                } else if (prev != null) {
+                    prev.setNext(next);
                 }
+
             }
-            deleteNode = deleteNode.getNext(); //n
+                queue=queue.getNext();
         }
     }
 
         public void show(){
-        for(int i=0; i<lista.size(); i++){
-            if(lista.get(i)!=null){
-                System.out.println(lista.get(i).getHead());
+        for(int i=0; i<lista.length; i++){
+            if(lista[i]!=null){
+                System.out.println(lista[i].getValue());
             }
         }
     }

@@ -41,23 +41,28 @@ public class QueueT<T> implements Pqueue<T> {
     public void setSize(int size) {
         this.size = size;
     }
-    public void maxHeapify(int index) {
-        int l = 2 * index;
-        int r = 2 * index + 1;
+    public void maxHeapify(int i) {
+        int l = 2 * i;
+        int r = 2 * i + 1;
         int la;
-        if (l <= array.size() - 1 && array.get(l).getKey() > array.get(index).getKey()) {
-            la = l;} else {la = index;}
+        if (l <= array.size() - 1 && array.get(l).getKey() > array.get(i).getKey()) {
+            la = l;} else {la = i;}
         if (r <= array.size() - 1 && array.get(r).getKey() > array.get(la).getKey()) {
             la = r;}
-        if (la != index) {
-            Node<T> temp = array.get(index);
+        if (la != i) {
+            Node<T> temp = array.get(i);
             Node<T> temp2 = array.get(la);
-            array.set(index, temp2);
+            array.set(i, temp2);
             array.set(la, temp);
             maxHeapify(la);
         }
     }
 
+    @Override
+    public void insert(T a, int key) {
+        array.add(new Node<>(a, key));
+        buildMaxHeap();
+    }
     public void buildMaxHeap() {
         size = array.size();
         for (int i = array.size(); i >= 0; i--) {
@@ -65,47 +70,8 @@ public class QueueT<T> implements Pqueue<T> {
         }
 
     }
-    /*public void insert(T t) {
-        Node<T> node = new Node<>(t);
-        if (head == null) {
-            head = node;
-        } else {
-            Node<T> puntero = head;
-            while (puntero.getNext() != null) {
-                puntero = puntero.getNext();
-            }
-            puntero.setNext(node);
-        }
-    }
 
-    public Node search(T goal) {
-        return search(goal, head);
-    }
 
-    //Recursivo
-    private Node<T> search(T goal, Node<T> current) {
-        //Casos base
-        if (current == null) {
-            return null;
-        }
-        if (current.getValue() == goal) {
-            return current;
-        }
-        //Llamados recursivos
-        return search(goal, current.getNext());
-    }
-
-    public void insertarNodo(Node<T> t) {
-        if (head == null) {
-            head = t;
-        } else {
-            Node<T> puntero = head;
-            while (puntero.getNext() != null) {
-                puntero = puntero.getNext();
-            }
-            puntero.setNext(t);
-        }
-    }*/
     public void deleteFromQueue(Patient obj){
         for (int i = 0;i < array.size();i++){
             if(array.get(i).getValue().equals(obj)){
@@ -116,9 +82,11 @@ public class QueueT<T> implements Pqueue<T> {
     @Override
     public T deQueue() {
         int p = 0;
-        if(array.size()<1){
-            return null;
-        }else{
+        T firstInQueue=null;
+        //base case
+        if(array.isEmpty()){
+            return firstInQueue;
+        }
             for (int i=0;i < array.size();i++){
                 if(array.get(i).getKey()>array.get(p).getKey()){
                     p=i;
@@ -131,14 +99,14 @@ public class QueueT<T> implements Pqueue<T> {
         }
 
 
-    }
+
 
     @Override
     public T getMax() {
         return array.get(0).getValue();
     }
 
-    @Override
+
     public void increaseKey(T element, int newKey) {
         int index = -1;
         for (int i = 0; i < array.size(); i++) {
@@ -151,11 +119,7 @@ public class QueueT<T> implements Pqueue<T> {
             buildMaxHeap();
         }
     }
-    @Override
-    public void insert(T a, int key) {
-        array.add(new Node<>(a, key));
-        buildMaxHeap();
-    }
+
     public boolean search(String id){
         for (Node<T> node:array){
             Patient a=(Patient) node.getValue();
@@ -174,40 +138,7 @@ public class QueueT<T> implements Pqueue<T> {
         }
         return message;
     }
-    /*public void delete(T goal) {
-        delete(goal, head, new QueueT<T>());
-    }
 
-    private void delete(T goal, Node<T> current, QueueT<T> out) {
-        //Casos bases
-        if (current == null) {
-            head = out.head;
-        } else {
-            //Delete head
-            if (current.getValue() == goal) {
-                out.insertarNodo(current.getNext());
-                head = out.head;
-                return;
-            }
-
-            //Llamado recursivo
-            out.insert(current.getValue());
-            delete(goal, current.getNext(), out);
-        }
-
-
-    }
-
-    public void mostrar() {
-        Node<T> puntero = head;
-        while (puntero != null) {
-            System.out.print(puntero.getValue() + "-->");
-            puntero = puntero.getNext();
-        }
-        System.out.println("null");
-    }*/
-
-    //falta heap
 
 
 }
