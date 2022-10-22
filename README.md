@@ -21,4 +21,4 @@ Bonus: lograr que el egreso dentro de las unidades sea automático luego de un t
  - Juan Diego Rosero
  - Sara Cardona
 
-Fecha Máxima de Entrega: 21 de octubre de 2022 a las 23:59 p.m.
+
