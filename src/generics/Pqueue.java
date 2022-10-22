@@ -1,13 +1,12 @@
 package generics;
 
+import model.Node;
+
 public interface Pqueue<T> {
 
-
-
-
-    T deQueue();
+    Node<T> deQueue();
 
     T getMax();
 
-     void insert(T a, int key);
+     void insert(Node<T> node, int priority);
 }

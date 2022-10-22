@@ -2,19 +2,28 @@ package model;
 
 public class Node<T> {
     private T value;
-    private int key;
+    private String key;
+    private int priority;
 
-    public int getKey() {
+    public String getKey() {
         return key;
     }
 
-    public void setKey(int key) {
+    public void setKey(String key) {
         this.key = key;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     private Node<T> next;
 
-    public Node(T value, int key) {
+    public Node(T value) {
         this.value = value;
         this.key=key;
         this.next = null;

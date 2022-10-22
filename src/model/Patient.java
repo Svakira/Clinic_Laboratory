@@ -6,7 +6,7 @@ public class Patient {
     private String id;
     private String genre;
     private String telephone;
-    private int priority;
+
     private int pregnant;
     private int elderly;
     private int illness;
@@ -17,11 +17,7 @@ public class Patient {
         this.id = id;
         this.genre = genre;
         this.telephone = telephone;
-        if(pregnant==1 || elderly==1 || illness==1){
-            priority=1;
-        }else{
-            priority=0;
-        }
+
     }
 
     public String getName() {
@@ -64,13 +60,6 @@ public class Patient {
         this.telephone = telephone;
     }
 
-    public int getPriority() {
-        return priority;
-    }
-
-    public void setPriority(int priority) {
-        this.priority = priority;
-    }
 
     public int getPregnant() {
         return pregnant;
@@ -103,7 +92,7 @@ public class Patient {
                 "," + id  +
                 "," + genre  +
                 "," + telephone +
-                "," + priority +
+                "," +
                 "\n";
     }
 }

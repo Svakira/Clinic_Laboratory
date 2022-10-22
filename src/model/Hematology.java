@@ -5,8 +5,8 @@ public class Hematology {
     public Hematology(){
         queueT=new QueueT<>();
     }
-    public void entryPatients(Patient patient, int priority){
-        queueT.insert(patient,priority);
+    public void entryPatients(Node<Patient>n, int priority){
+        queueT.insert(n,priority);
     }
     public void print(){
         queueT.print();

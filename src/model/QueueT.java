@@ -59,10 +59,14 @@ public class QueueT<T> implements Pqueue<T> {
     }
 
     @Override
-    public void insert(T a, int key) {
-        array.add(new Node<>(a, key));
-        buildMaxHeap();
+    public void insert(Node<T> t, int priority) {
+            size++;
+            t.setPriority(priority);
+            array.add(t);
+            increaseKey(size-1,t.getPriority());
+
     }
+
     public void buildMaxHeap() {
         size = array.size();
         for (int i = array.size(); i >= 0; i--) {
@@ -72,63 +76,65 @@ public class QueueT<T> implements Pqueue<T> {
     }
 
 
-    public void deleteFromQueue(Patient obj){
-        for (int i = 0;i < array.size();i++){
-            if(array.get(i).getValue().equals(obj)){
-                array.remove(i);
+    public void deleteFromQueue(T value){
+        Node<T> delete=null;
+        for(Node<T>search:array){
+            if(search.getValue().equals(value)){
+                delete=search;
+                break;
             }
         }
+           array.remove(delete);
+            //if the search is true, that means that the patient was found and ready to remove
+
     }
     @Override
-    public T deQueue() {
-        int p = 0;
-        T firstInQueue=null;
-        //base case
-        if(array.isEmpty()){
-            return firstInQueue;
+    public Node<T> deQueue() {
+        if(size<1){
+            return null;
         }
-            for (int i=0;i < array.size();i++){
-                if(array.get(i).getKey()>array.get(p).getKey()){
-                    p=i;
-                }
-            }
-            T max = array.get(p).getValue();
-            array.remove(p);
-            maxHeapify(1);
-            return max;
+        Node<T> first= array.get(0);
+        array.remove(0);
+        if(size!=0){
+            size--;
         }
-
-
+        maxHeapify(0);
+        return first;
+    }
 
 
     @Override
     public T getMax() {
-        return array.get(0).getValue();
+        T max=array.get(0).getValue();
+        return max;
     }
 
-
-    public void increaseKey(T element, int newKey) {
-        int index = -1;
-        for (int i = 0; i < array.size(); i++) {
-            if(array.get(i).getValue().equals(element)){
-                index = i;
-            }
+//nose
+    public void increaseKey(int i, int prio) {
+        if(array.get(i).getPriority()>prio) {
+            return;
+            //saca metodo
         }
-        if(newKey > array.get(index).getKey()) {
-            array.get(index).setKey(array.get(index).getKey()+newKey);
-            buildMaxHeap();
+        array.get(i).setPriority(prio);
+        //if the fathers priority is less than my priority reorganize
+        while(i>0 && array.get(i/2).getPriority()<array.get(i).getPriority()) {
+            Node<T> change= array.get(i);
+            array.set(i,array.get(i/2));
+            array.set(1/2,change);
+            i=1/2;
         }
     }
 
     public boolean search(String id){
         for (Node<T> node:array){
-            Patient a=(Patient) node.getValue();
-            if(a.getId().equals(id)){
+            Patient patient=(Patient) node.getValue();
+            if(patient.getId().equals(id)){
                 return true;
             }
         }
         return false;
     }
+    //copia
     public String print(){
         String message="";
         int cont=0;

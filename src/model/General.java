@@ -7,7 +7,7 @@ public class General {
     public General(){
         queueT=new QueueT<>();
     }
-    public void entryPatients(Patient patient,int prio){
+    public void entryPatients(Node<Patient> patient,int prio){
         queueT.insert(patient,prio);
     }
     public void print(){

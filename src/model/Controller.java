@@ -41,18 +41,23 @@ public class Controller {
             e.printStackTrace();
         }
     }
-    public void insertPatient(Patient patient){
-        hashTable.insert(patient.getId(), patient);
+    public void insertPatient(String id,Patient patient){
+        hashTable.insert(id, patient);
     }
     public void entryPatients(Patient patient, int priority,int des){
+        Node<Patient>patientNode=new Node<>(patient);
         if(des== 1){
-            hematology.entryPatients(patient,priority);
+            hematology.entryPatients(patientNode,priority);
         }else{
-            general.entryPatients(patient,priority);
+            general.entryPatients(patientNode,priority);
         }
     }
     public Patient searchPatient(String id){
         return hashTable.search(id).getValue();
+    }
+    public Node<Patient> searchNode(String id){
+        Node<Patient>node=new Node<>(hashTable.search(id).getValue());
+        return node;
     }
 
     public boolean alreadyRegisterePatient(String id){

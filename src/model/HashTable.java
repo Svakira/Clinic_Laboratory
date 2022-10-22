@@ -35,25 +35,26 @@ public class HashTable<K, V>  implements Hash<K,V> {
         return key.hashCode() % size;
     }
 //CPIA
-    public void insert(K key, V value) {
-        int call = getHashIndex(key);
-        Data<K,V> listN=lista[call];
-
-        if(listN==null) {
-            lista[call]=new Data<>(key, value);
-        }else{
-            while (listN != null) {
-                if(listN.getKey().equals(key)) {
-                    break;
-                }
-                listN = listN.getNext();
-            }
-            Data<K,V> nF= new Data<>(key, value);
-            lista[call].setPrev(nF);
-            nF.setNext(lista[call]);
-            lista[call] = nF;
+    public void insert(Data<K,V>data) {
+        int call = getHashIndex(data.getKey());
+        if(search(data.getKey())==null){
+            addLast(data, call);
         }
-
+    }
+    public void addLast(Data<K,V> data,int index){
+        //caso base
+        if(lista[index]==null){
+            lista[index]=data;
+            lista[index].setNext(data);
+            lista[index].setPrev(data);
+        }else{
+            Data<K,V> tail= lista[index].getPrev();
+            tail.setNext(data);
+            data.setNext(lista[index]);
+            lista[index].setPrev(data);
+            data.setPrev(tail);
+        }
+        size++;
     }
 
     public Data<K,V> search(K key){
