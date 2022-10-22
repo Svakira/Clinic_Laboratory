@@ -22,17 +22,16 @@ public class Main {
                     registerPatient();
                     break;
                 case 2:
-                    searchPatient();
+                    entryPatient();
                     break;
                 case 3:
                     entryPatient();
                     break;
                 case 4:
-                    searchPatient();
                     break;
 
                 case 5:
-                    exitQueue();
+                    print();
                     break;
                 case 6:
                     entry=false;
@@ -45,10 +44,10 @@ public class Main {
         System.out.println("-----------------------");
         System.out.println("What do you want to do?...");
         System.out.println("1. Register patient");
-        System.out.println("2. Search patient");
-        System.out.println("3. Insert patient to the queue");
-        System.out.println("4. See the queue");
-        System.out.println("5. Eliminate from the queue");
+        System.out.println("2. Insert patient to the queue");
+        System.out.println("3. See the queue");
+        System.out.println("4. Eliminate from the queue");
+        System.out.println("5. see the dataBase");
         System.out.println("6. Get out");
 
     }
@@ -96,16 +95,17 @@ public class Main {
         controller.readData();
 
     }
-    static void searchPatient(){
+    /*static void searchPatient(){
         System.out.println("To search a patient...");
         System.out.println("Enter the id of the patient");
         String goal=lect.nextLine();
         controller.searchPatient(goal);
-    }
+
+    }*/
     public static void entryPatient(){
         System.out.println("Enter the id of the patient");
         String id= lect.nextLine();
-        if(!controller.alreadyRegisterePatient(id)){
+        if(controller.alreadyRegisterePatient(id)){
             System.out.println("The patient is not registered");
         }else {
             System.out.println("Send to 1. Hematology 2. General purpose");
@@ -141,5 +141,7 @@ public class Main {
         }
         System.out.println("Client had been exited succesfully");
     }
-
+    public static void print(){
+        System.out.println(controller.printear());
+    }
 }

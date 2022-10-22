@@ -15,7 +15,8 @@ public class Controller {
         readData();
         hematology=new Hematology();
         general = new General();
-        new HashTable<>(100000);
+        hashTable=new HashTable<>(1000000);
+
     }
     public void readData(){
         try {
@@ -44,6 +45,7 @@ public class Controller {
     public void insertPatient(String id,Patient patient){
         Data<String, Patient>data=new Data<>(id,patient);
         hashTable.insert(data);
+        writeData(patient.toString());
     }
     public void entryPatients(Patient patient, int priority,int des){
         Node<Patient>patientNode=new Node<>(patient);
@@ -54,11 +56,17 @@ public class Controller {
         }
     }
     public Patient searchPatient(String id){
-        return hashTable.search(id).getValue();
+        if(hashTable.search(id)!=null){
+            return hashTable.search(id).getValue();
+        }
+        return null;
     }
     public Node<Patient> searchNode(String id){
         Node<Patient>node=new Node<>(hashTable.search(id).getValue());
-        return node;
+        if(node!=null){
+            return node;
+        }
+        return null;
     }
 
     public boolean alreadyRegisterePatient(String id){
@@ -90,6 +98,11 @@ public class Controller {
         return message;
     }
 
+    public String printear(){
+        return hashTable.data();
+    }
+
+
     public Hematology getHematology() {
         return hematology;
     }
@@ -97,5 +110,7 @@ public class Controller {
     public General getGeneral() {
         return general;
     }
+
+
 
 }

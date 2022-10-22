@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="36e7d0e3-de27-43dd-aed6-2de150b55d27" name="Changes" comment="commit10">
-      <change beforePath="$PROJECT_DIR$/src/generics/Hash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/generics/Hash.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/File.txt" beforeDir="false" afterPath="$PROJECT_DIR$/files/File.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/General.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Hematology.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Hematology.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/QueueT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/QueueT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/HashTable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +52,7 @@
       <recent name="C:\Users\Sara Cardona\IdeaProjects\TI1_Disc" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.QueueTest.testEliminate2Nodes">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ui.Main" />
       <module name="TI1_Disc" />
@@ -133,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.QueueTest.testEliminate2Nodes" />
         <item itemvalue="JUnit.QueueTest.maxHeapifyPrint" />
         <item itemvalue="JUnit.HashTableTest.eliminateOneElementTest" />
         <item itemvalue="JUnit.HashTableTest.insertOneElementTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666453324966</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit10">
+      <created>1666453791405</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666453791405</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

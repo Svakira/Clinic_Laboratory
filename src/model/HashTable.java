@@ -37,9 +37,9 @@ public class HashTable<K, V>  implements Hash<K,V> {
 //CPIA
     public void insert(Data<K,V>data) {
         int call = getHashIndex(data.getKey());
-        if(search(data.getKey())==null){
+
             addLast(data, call);
-        }
+
     }
     public void addLast(Data<K,V> data,int index){
         //caso base
@@ -59,16 +59,22 @@ public class HashTable<K, V>  implements Hash<K,V> {
 
     public Data<K,V> search(K key){
         int k = getHashIndex(key);
-        Data<K,V> value=null;
-        Data<K, V> queueT = lista[k];
-        Data<K, V> aux = queueT;
-        while (queueT != null) {
-            if (aux.getKey() == key) {
-                value= (Data<K, V>) aux.getValue();
-            }
-            aux=aux.getNext();
+        Data<K,V>data=searchLinkedList(key,lista[k],k);
+        return data;
+    }
+    public Data<K,V>searchLinkedList(K key, Data<K,V>current, int pos){
+        if(current==null){
+            return null;
         }
-        return value;
+        if(current.getNext()==lista[pos] && !current.getKey().equals(key)){
+            return null;
+        }
+        //found
+        if(current.getKey().equals(key)){
+            return current;
+        }else{
+            return searchLinkedList(key,current.getNext(),pos);
+        }
     }
     public void eliminate(K key) {
         int call = getHashIndex(key);
@@ -98,6 +104,19 @@ public class HashTable<K, V>  implements Hash<K,V> {
                 System.out.println(lista[i].getValue());
             }
         }
+    }
+
+    public String data(){
+        String out="";
+        for(int i=0; i<lista.length; i++){
+            Data<K,V> a= lista[i];
+            while(a!=null){
+                out+=a.getValue().toString();
+                a=a.getNext();
+            }
+        }
+
+        return out;
     }
 
 
